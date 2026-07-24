@@ -23,11 +23,14 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Button } from "@/components/ui/button";
 
 const services = [
+  //   https://coolors.co/004777-a30000-ff7700
+  //   alternatives: https://coolors.co/1c3144-d00000-ffba08
   {
     title: "Weight loss, built around you",
     subtitle: "Personalized care for lasting progress.",
     price: "From $99/mo*",
-    tone: "from-[#0b7a55] via-[#18a871] to-[#3fc182]",
+    tone: "from-[#002b49] via-[#004777] to-[#4b93bd]",
+    textTone: "light",
     href: "/weight-loss",
     image: "Transparent product still life — injection pen and three GLP-1 medication vials, vertical 4:5 PNG",
     imageSrc: null,
@@ -42,7 +45,7 @@ const services = [
     title: "Fuller-looking hair starts here",
     subtitle: "Targeted treatments for healthier-looking growth.",
     price: "Plans from $83/mo",
-    tone: "from-[#8b67a0] via-[#a77bbc] to-[#d5b0d8]",
+    tone: "from-[#680000] via-[#A30000] to-[#df4c3c]",
     textTone: "light",
     href: "#get-started",
     image: "Transparent hair-care product still life — topical dropper, treatment bottle, and tablet pouch, vertical 4:5 PNG",
@@ -55,7 +58,8 @@ const services = [
     title: "Sexual health, handled discreetly",
     subtitle: "Private care for confidence and connection.",
     price: "Plans from $49/mo",
-    tone: "from-[#2a7fa3] via-[#3aa3cf] to-[#73c9ee]",
+    tone: "from-[#a84800] via-[#FF7700] to-[#ffbc5f]",
+    textTone: "light",
     href: "#get-started",
     image: "Discreet sexual-health product still life — minimal tablet pack and unbranded prescription bottle, cool studio lighting, transparent PNG",
     imageSrc: "/images/sexual-health-card.png",
