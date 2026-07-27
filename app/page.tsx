@@ -14,8 +14,6 @@ import {
   UserRound,
 } from "lucide-react";
 
-import { ImagePlaceholder } from "@/components/image-placeholder";
-import { BmiCalculator } from "@/components/bmi-calculator";
 import { InteractiveCard } from "@/components/interactive-card";
 import { MobileMenu } from "@/components/mobile-menu";
 import { MotionObserver } from "@/components/motion-observer";
@@ -27,9 +25,10 @@ const services = [
   //   alternatives: https://coolors.co/1c3144-d00000-ffba08
   {
     title: "Weight loss, built around you",
+    compactTitle: "Weight loss, built around you",
     subtitle: "Personalized care for lasting progress.",
     price: "From $99/mo*",
-    tone: "from-[#002b49] via-[#004777] to-[#4b93bd]",
+    tone: "from-[#63251b] via-[#A53F2B] to-[#d98a6f]",
     textTone: "light",
     href: "/weight-loss",
     image: "Transparent product still life — injection pen and three GLP-1 medication vials, vertical 4:5 PNG",
@@ -37,12 +36,13 @@ const services = [
     imageAlt: null,
     fullBleedImage: false,
     imagePair: {
-      vial: "/images/weight-loss-vial.png",
-      syringe: "/images/weight-loss-syringe.png",
+      vial: "/images/home-weight-loss-vial.png",
+      syringe: "/images/home-weight-loss-syringe.png",
     },
   },
   {
     title: "Fuller-looking hair starts here",
+    compactTitle: "Regrow your hair",
     subtitle: "Targeted treatments for healthier-looking growth.",
     price: "Plans from $83/mo",
     tone: "from-[#680000] via-[#A30000] to-[#df4c3c]",
@@ -56,6 +56,7 @@ const services = [
   },
   {
     title: "Sexual health, handled discreetly",
+    compactTitle: "Treat ED discreetly",
     subtitle: "Private care for confidence and connection.",
     price: "Plans from $49/mo",
     tone: "from-[#a84800] via-[#FF7700] to-[#ffbc5f]",
@@ -137,67 +138,67 @@ export default function Home() {
             </ul>
           </div>
 
-          <div className="mt-8 grid gap-3 sm:mt-12 sm:gap-4 lg:grid-cols-3">
-            {services.map((service, index) => (
-              <InteractiveCard
-                key={service.title}
-                href={service.href}
-                ariaLabel={`Explore ${service.title}`}
-                glow={service.textTone === "dark" ? "dark" : "light"}
-                revealDelay={index * 90}
-                className={`relative min-h-[260px] overflow-hidden rounded-[22px] bg-gradient-to-br ${service.tone} p-6 sm:min-h-[380px] sm:rounded-[24px] sm:p-7 ${service.textTone === "dark" ? "text-[#191816]" : "text-white"} ${service.fullBleedImage ? "[--card-hover-scale:1.01]" : ""}`}
-              >
-                <div className="relative z-20 max-w-[220px]">
-                  <h2 className="text-[28px] font-bold leading-[0.98] tracking-[-0.045em]">{service.title}</h2>
-                  <p className={`mt-2 text-sm ${service.textTone === "dark" ? "text-[#191816]/70" : "text-white/80"}`}>{service.subtitle}</p>
-                  <p className={`mt-1 text-xs ${service.textTone === "dark" ? "text-[#191816]/55" : "text-white/65"}`}>{service.price}</p>
-                </div>
-                {service.imagePair ? (
-                  <div className="pointer-events-none absolute bottom-1 right-[-10px] z-10 h-[205px] w-[62%] sm:bottom-2 sm:right-[-18px] sm:h-[295px] sm:w-[68%]">
-                    <Image
-                      src={service.imagePair.vial}
-                      alt="Apoth tirzepatide vial"
-                      fill
-                      priority={index === 0}
-                      sizes="(min-width: 1024px) 15vw, 44vw"
-                      className="!left-[20%] !top-[22%] !h-[76%] !w-[58%] rotate-[-11deg] scale-[1.38] object-contain object-center transition-transform duration-500 ease-out group-hover:translate-x-1 group-hover:-translate-y-2 group-hover:rotate-[-16deg] group-hover:scale-[1.48] group-focus-visible:translate-x-1 group-focus-visible:-translate-y-2 group-focus-visible:rotate-[-16deg] group-focus-visible:scale-[1.48] sm:!left-[16%] sm:!top-[18%] sm:!h-[78%] sm:scale-[1.56] sm:group-hover:-translate-y-3 sm:group-hover:scale-[1.7] sm:group-focus-visible:-translate-y-3 sm:group-focus-visible:scale-[1.7] motion-reduce:transition-none"
-                    />
-                    <Image
-                      src={service.imagePair.syringe}
-                      alt="Medication syringe"
-                      fill
-                      priority={index === 0}
-                      sizes="(min-width: 1024px) 13vw, 38vw"
-                      className="!left-[36%] !top-[8%] !h-[102%] !w-[48%] rotate-[9deg] scale-[1.38] object-contain object-center transition-transform duration-700 ease-out group-hover:translate-x-1 group-hover:-translate-y-3 group-hover:rotate-[14deg] group-hover:scale-[1.48] group-focus-visible:translate-x-1 group-focus-visible:-translate-y-3 group-focus-visible:rotate-[14deg] group-focus-visible:scale-[1.48] sm:!left-[34%] sm:!top-[2%] sm:!h-[105%] sm:scale-[1.56] sm:group-hover:-translate-y-4 sm:group-hover:scale-[1.7] sm:group-focus-visible:-translate-y-4 sm:group-focus-visible:scale-[1.7] motion-reduce:transition-none"
-                    />
+          <div className="mx-[-15px] mt-8 max-w-[920px] sm:mx-auto sm:mt-12">
+            <InteractiveCard
+              href={services[0].href}
+              ariaLabel={`Explore ${services[0].title}`}
+              glow="light"
+              className={`relative block min-h-[260px] overflow-hidden rounded-[22px] bg-gradient-to-br ${services[0].tone} p-6 text-white sm:min-h-[380px] sm:rounded-[24px] sm:p-7`}
+            >
+              <div className="treatment-card-gradient pointer-events-none absolute inset-0 z-0" aria-hidden="true" />
+              <div className="treatment-card-grain pointer-events-none absolute inset-0 z-[1]" aria-hidden="true" />
+              <div className="relative z-20 max-w-[220px]">
+                <h2 className="text-[28px] font-bold leading-[0.98] tracking-[-0.045em]">{services[0].title}</h2>
+                <p className="mt-2 text-sm text-white/80">{services[0].subtitle}</p>
+                <p className="mt-1 text-xs text-white/65">{services[0].price}</p>
+              </div>
+              <div className="pointer-events-none absolute bottom-1 right-[1%] z-10 h-[205px] w-[68%] sm:bottom-2 sm:right-[3%] sm:h-[295px] sm:w-[70%]">
+                <Image
+                  src={services[0].imagePair!.vial}
+                  alt="Apoth GLP-1 injection vial"
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 15vw, 35vw"
+                  className="!left-[10%] !top-[50%] !h-[86%] !w-[52%] rotate-[-11deg] scale-[1.38] object-contain object-center transition-transform duration-500 ease-out group-hover:-translate-x-1 group-hover:-translate-y-2 group-hover:rotate-[-16deg] group-hover:scale-[1.48] group-focus-visible:-translate-x-1 group-focus-visible:-translate-y-2 group-focus-visible:rotate-[-16deg] group-focus-visible:scale-[1.48] sm:!left-[2%] sm:!top-[18%] sm:!h-[78%] sm:scale-[1.56] sm:group-hover:-translate-x-2 sm:group-hover:-translate-y-3 sm:group-hover:scale-[1.7] sm:group-focus-visible:-translate-x-2 sm:group-focus-visible:-translate-y-3 sm:group-focus-visible:scale-[1.7] motion-reduce:transition-none"
+                />
+                <Image
+                  src={services[0].imagePair!.syringe}
+                  alt="Medication syringe"
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 30vw, 38vw"
+                  className="!left-[50%] !top-[8%] !h-[102%] !w-[46%] rotate-[9deg] scale-[1.38] object-contain object-center transition-transform duration-700 ease-out group-hover:translate-x-2 group-hover:-translate-y-3 group-hover:rotate-[14deg] group-hover:scale-[1.48] group-focus-visible:translate-x-2 group-focus-visible:-translate-y-3 group-focus-visible:rotate-[14deg] group-focus-visible:scale-[1.48] sm:!left-[51%] sm:!top-[2%] sm:!h-[105%] sm:scale-[1.56] sm:group-hover:translate-x-3 sm:group-hover:-translate-y-4 sm:group-hover:scale-[1.7] sm:group-focus-visible:translate-x-3 sm:group-focus-visible:-translate-y-4 sm:group-focus-visible:scale-[1.7] motion-reduce:transition-none"
+                />
+              </div>
+              <div className="absolute bottom-5 left-6 z-20 sm:bottom-6 sm:left-7"><ArrowLink light /></div>
+            </InteractiveCard>
+
+            <div className="mt-1.5 grid gap-1.5 sm:mt-4 sm:grid-cols-2 sm:gap-4">
+              {[services[2], services[1]].map((service, index) => (
+                <InteractiveCard
+                  key={service.title}
+                  href={service.href}
+                  ariaLabel={`Explore ${service.title}`}
+                  revealDelay={(index + 1) * 90}
+                  className="relative min-h-[88px] overflow-hidden rounded-[24px] bg-[#f0efeb] px-5 py-4 text-[#191816] [--card-hover-scale:1.01] sm:min-h-[132px] sm:px-6 sm:py-6"
+                >
+                  <div className="relative z-20 flex h-full max-w-[50%] flex-col justify-center">
+                    <h2 className="text-[16px] font-medium leading-[1.05] tracking-[-0.025em] sm:text-[22px] sm:font-semibold sm:tracking-[-0.035em]">{service.compactTitle}</h2>
+                    <p className="mt-2 hidden text-xs text-[#191816]/50 sm:block">{service.price}</p>
                   </div>
-                ) : service.imageSrc && service.fullBleedImage ? (
-                  <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden rounded-[inherit]">
+                  <div className="pointer-events-none absolute inset-y-0 right-9 z-10 w-[42%] overflow-hidden sm:w-[48%]">
                     <Image
-                      src={service.imageSrc}
+                      src={service.imageSrc!}
                       alt={service.imageAlt ?? ""}
                       fill
-                      sizes="(min-width: 1024px) 31vw, 92vw"
-                      className="origin-bottom-right scale-[0.82] object-contain object-right-bottom transition-transform duration-700 ease-out group-hover:scale-[0.84] group-focus-visible:scale-[0.84] sm:scale-95 sm:group-hover:scale-[0.975] sm:group-focus-visible:scale-[0.975] motion-reduce:transition-none"
+                      sizes="(min-width: 640px) 20vw, 48vw"
+                      className="origin-right object-contain object-right-bottom transition-transform duration-500 ease-out group-hover:-translate-x-1 group-hover:scale-[1.04] group-focus-visible:-translate-x-1 group-focus-visible:scale-[1.04] motion-reduce:transition-none"
                     />
                   </div>
-                ) : service.imageSrc ? (
-                  <div className="absolute bottom-12 right-4 z-10 h-[245px] w-[52%] overflow-hidden rounded-2xl">
-                    <Image
-                      src={service.imageSrc}
-                      alt={service.imageAlt ?? ""}
-                      fill
-                      priority={index === 0}
-                      sizes="(min-width: 1024px) 22vw, 56vw"
-                      className="scale-125 object-contain object-center transition-transform duration-500 ease-out group-hover:scale-[1.35] group-focus-visible:scale-[1.35] motion-reduce:transition-none"
-                    />
-                  </div>
-                ) : (
-                  <ImagePlaceholder dark compact label={service.image} className="absolute bottom-12 right-4 z-10 h-[245px] w-[52%] rounded-2xl bg-white/5" />
-                )}
-                <div className="absolute bottom-5 left-6 z-20 sm:bottom-6 sm:left-7"><ArrowLink light={service.textTone !== "dark"} /></div>
-              </InteractiveCard>
-            ))}
+                  <ArrowRight className="absolute right-4 top-1/2 z-20 h-5 w-5 -translate-y-1/2 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1/2 group-focus-visible:translate-x-1 group-focus-visible:-translate-y-1/2 sm:right-5" aria-hidden="true" />
+                </InteractiveCard>
+              ))}
+            </div>
           </div>
 
         </section>
@@ -217,7 +218,15 @@ export default function Home() {
 
         <section id="weight-loss" className="bg-[#f0f0f2] py-20 sm:py-28">
           <div className="mx-auto grid max-w-[1270px] gap-12 px-5 lg:grid-cols-2 lg:items-center lg:px-6">
-            <ImagePlaceholder label="Bright editorial lifestyle photo — confident adult in motion, full-body crop, soft daylight, portrait 4:5" className="min-h-[520px] rounded-[28px] bg-[#e7e7e9] lg:min-h-[680px]" />
+            <div className="relative min-h-[520px] overflow-hidden rounded-[28px] bg-[#e7e7e9] lg:min-h-[680px]">
+              <Image
+                src="/images/weight-management-lifestyle.png"
+                alt="A smiling woman moving confidently outdoors"
+                fill
+                sizes="(min-width: 1024px) 50vw, calc(100vw - 40px)"
+                className="object-cover object-center"
+              />
+            </div>
             <div className="lg:pl-12">
               <p className="eyebrow text-foreground/45">Weight management</p>
               <h2 className="display-tight mt-4 max-w-xl text-[47px] font-bold sm:text-[62px]">Lose weight with a plan made just for you</h2>
@@ -231,23 +240,8 @@ export default function Home() {
               </ul>
               <div className="mt-10 flex flex-wrap gap-3">
                 <Button asChild size="lg"><a href="#get-started">Get started</a></Button>
-                <Button asChild size="lg" variant="outline"><a href="#bmi">See if you&apos;re eligible</a></Button>
               </div>
               <p className="mt-8 max-w-lg text-[10px] leading-4 text-foreground/40">*Prescription treatment requires an online consultation with a licensed provider. Results vary. Compounded medications are not FDA-approved.</p>
-            </div>
-          </div>
-
-          <div id="bmi" className="mx-auto mt-24 grid max-w-[1270px] gap-5 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:px-6">
-            <BmiCalculator />
-            <div className="relative overflow-hidden rounded-[28px] bg-white p-8 shadow-soft sm:p-12">
-              <div className="relative z-10 max-w-sm">
-                <p className="text-sm text-foreground/50">Members with a similar starting point could lose</p>
-                <p className="mt-2 text-[68px] font-bold leading-none tracking-[-0.07em]">30<span className="ml-1 text-3xl">lbs</span></p>
-                <p className="mt-5 text-xs leading-5 text-foreground/45">This illustration is not a prediction or guarantee. A provider can help you choose an appropriate plan.</p>
-              </div>
-              <div className="mt-10 flex h-28 items-end gap-2" aria-hidden="true">
-                {[44, 66, 53, 90, 63, 78, 55, 98, 75, 58, 84, 70, 49, 66, 45].map((height, i) => <span key={i} className="w-full rounded-full bg-[#a8cd83]" style={{ height: `${height}%` }} />)}
-              </div>
             </div>
           </div>
         </section>
