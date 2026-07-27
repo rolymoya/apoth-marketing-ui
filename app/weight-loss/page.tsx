@@ -9,12 +9,8 @@ import {
   HeartHandshake,
   Instagram,
   Linkedin,
-  MessageCircle,
   PackageCheck,
   ShieldCheck,
-  Sparkles,
-  Stethoscope,
-  Truck,
   UserRound,
 } from "lucide-react";
 
@@ -64,21 +60,23 @@ const plans = [
   },
 ];
 
-const steps = [
+const howItWorksSteps = [
   {
-    title: "Tell us about your health and goals",
-    copy: "Complete a short online intake so a licensed medical provider can understand your history, needs, and goals.",
-    icon: Stethoscope,
+    title: "Sign up",
+    copy: "Complete a brief online intake and tell us about your health, history, and weight loss goals.",
+    disclaimer: "Medication and care are included in the plan price, if prescribed.",
   },
   {
-    title: "Meet your provider online",
-    copy: "Your provider reviews your information, answers questions, and determines whether treatment is appropriate for you.",
-    icon: MessageCircle,
+    title: "Provider evaluation",
+    copy: "A licensed provider reviews your intake and determines what’s appropriate for you.",
   },
   {
-    title: "Receive care at your door",
-    copy: "If prescribed, your medication ships free. Your care team stays available as your treatment progresses.",
-    icon: Truck,
+    title: "Personalized plan",
+    copy: "If prescribed, receive a tailored treatment plan designed around your goals, with ongoing clinical support.",
+  },
+  {
+    title: "Start losing weight",
+    copy: "From prescription to discreet delivery at your door, you can get started as soon as this week.",
   },
 ];
 
@@ -157,7 +155,6 @@ export default function WeightLossPage() {
           <nav className={styles.nav} aria-label="Primary navigation">
             <a href="#treatments">Weight Loss</a>
             <a href="#how-it-works">How it works</a>
-            <a href="#stories">Results</a>
             <a href="#faq">FAQs</a>
             <a href="#footer">More</a>
           </nav>
@@ -172,7 +169,6 @@ export default function WeightLossPage() {
               links={[
                 ["Weight Loss", "#treatments"],
                 ["How it works", "#how-it-works"],
-                ["Results", "#stories"],
                 ["FAQs", "#faq"],
               ]}
               ctaHref="#get-started"
@@ -312,73 +308,35 @@ export default function WeightLossPage() {
         </section>
 
         <section className={styles.howItWorks} id="how-it-works">
-          <div className={styles.sectionInner}>
-            <div className={styles.centerHeading}>
-              <h2>Hit your health goals safely &amp; affordably in 3 simple steps</h2>
-              <ActionButtons />
-            </div>
-            <div className={styles.stepsGrid}>
-              {steps.map((step, index) => {
-                const Icon = step.icon;
-                return (
-                  <article className={styles.stepCard} key={step.title}>
-                    <h3>{step.title}</h3>
-                    <div className={styles.stepCopy}>
-                      <span>Step<strong>{index + 1}</strong></span>
-                      <p>{step.copy}</p>
-                    </div>
-                    <div className={styles.stepVisual} aria-hidden="true">
-                      <span /><Icon />
-                    </div>
-                  </article>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+          <div className={styles.howItWorksCard}>
+            <div className={styles.howItWorksInner}>
+              <div className={styles.howItWorksMedia}>
+                <Image
+                  className={styles.howItWorksImage}
+                  src="/images/how-it-works-member.png"
+                  alt="A member checking her care plan on her phone"
+                  fill
+                  sizes="(min-width: 768px) 45vw, calc(100vw - 44px)"
+                />
+              </div>
 
-        <section className={styles.stories} id="stories">
-          <div className={styles.sectionInner}>
-            <div className={styles.centerHeading}>
-              <h2>Real people, real<br />results, real support</h2>
-              <ActionButtons />
-            </div>
-            <div className={styles.storyGrid}>
-              <article className={styles.storyCard}>
-                <span className={styles.verified}><BadgeCheck /> Verified member</span>
-                <h3>Jamie lost <em>43 lbs</em> in 5 months</h3>
-                <p>“I have more energy, I’m moving more with my family, and I feel confident in the routines I’m building. Having a care team there made all the difference.”</p>
-                <div className={styles.progressVisual} aria-label="Illustration of steady progress over five months">
-                  {["Start", "Month 1", "Month 2", "Month 3", "Month 4", "Now"].map((label, index) => (
-                    <span key={label} style={{ height: `${35 + index * 11}%` }}><i>{label}</i></span>
+              <div className={styles.howItWorksContent}>
+                <h2>How it works</h2>
+                <ol className={styles.howItWorksSteps}>
+                  {howItWorksSteps.map((step, index) => (
+                    <li className={styles.howItWorksStep} key={step.title}>
+                      <span className={styles.stepNumber} aria-hidden="true">{index + 1}</span>
+                      <div className={styles.stepText}>
+                        <h3 className={styles.stepTitle}>{step.title}</h3>
+                        <p className={styles.stepDescription}>{step.copy}</p>
+                        {step.disclaimer ? <p className={styles.stepDisclaimer}>{step.disclaimer}</p> : null}
+                      </div>
+                    </li>
                   ))}
-                </div>
-              </article>
-              <article className={`${styles.storyCard} ${styles.storyCardAlt}`}>
-                <div className={styles.memberPortraits} aria-hidden="true">
-                  <span><UserRound /></span><span><Sparkles /></span>
-                  <i>Before</i><i>After</i>
-                </div>
-                <span className={styles.verified}><BadgeCheck /> Verified member</span>
-                <h3>Melissa lost <em>47 lbs</em> in 7 months</h3>
-                <p>“This plan helped me feel in control again. The regular check-ins kept me focused, and the progress has changed how I show up every day.”</p>
-              </article>
+                </ol>
+                <a className={styles.howItWorksButton} href="#get-started">Join Apoth</a>
+              </div>
             </div>
-
-            <article className={styles.clinicianQuote}>
-              <div>
-                <span className={styles.quoteMark}>“</span>
-                <h3>Losing weight is an emotional, physical, and <em>personal challenge</em> that goes beyond diet and exercise</h3>
-                <p>For many people, weight is connected to health factors that make traditional methods less effective. Clinician-guided treatment can help address those issues with a plan shaped around the whole person.</p>
-                <strong>Dr. Maya Bennett</strong>
-                <small>Medical Director, Apoth Weight Management</small>
-              </div>
-              <div className={styles.clinicianArt} aria-hidden="true">
-                <span className={styles.clinicianHalo} />
-                <Stethoscope />
-                <i>Clinician-led care<br />from intake to follow-up</i>
-              </div>
-            </article>
           </div>
         </section>
 

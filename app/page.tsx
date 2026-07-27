@@ -138,12 +138,12 @@ export default function Home() {
             </ul>
           </div>
 
-          <div className="mx-[-15px] mt-8 max-w-[920px] sm:mx-auto sm:mt-12">
+          <div className="mx-[-15px] mt-8 sm:mx-auto sm:mt-12 lg:grid lg:grid-cols-[minmax(0,1.6fr)_minmax(290px,0.72fr)] lg:gap-4">
             <InteractiveCard
               href={services[0].href}
               ariaLabel={`Explore ${services[0].title}`}
               glow="light"
-              className={`relative block min-h-[260px] overflow-hidden rounded-[22px] bg-gradient-to-br ${services[0].tone} p-6 text-white sm:min-h-[380px] sm:rounded-[24px] sm:p-7`}
+              className={`relative block min-h-[260px] overflow-hidden rounded-[22px] bg-gradient-to-br ${services[0].tone} p-6 text-white sm:min-h-[380px] sm:rounded-[24px] sm:p-7 lg:col-start-1 lg:row-start-1`}
             >
               <div className="treatment-card-gradient pointer-events-none absolute inset-0 z-0" aria-hidden="true" />
               <div className="treatment-card-grain pointer-events-none absolute inset-0 z-[1]" aria-hidden="true" />
@@ -153,34 +153,36 @@ export default function Home() {
                 <p className="mt-1 text-xs text-white/65">{services[0].price}</p>
               </div>
               <div className="pointer-events-none absolute bottom-1 right-[1%] z-10 h-[205px] w-[68%] sm:bottom-2 sm:right-[3%] sm:h-[295px] sm:w-[70%]">
+                <span aria-hidden="true" className="weight-loss-vial-shadow" />
                 <Image
                   src={services[0].imagePair!.vial}
                   alt="Apoth GLP-1 injection vial"
                   fill
                   priority
                   sizes="(min-width: 1024px) 15vw, 35vw"
-                  className="!left-[10%] !top-[50%] !h-[86%] !w-[52%] rotate-[-11deg] scale-[1.38] object-contain object-center transition-transform duration-500 ease-out group-hover:-translate-x-1 group-hover:-translate-y-2 group-hover:rotate-[-16deg] group-hover:scale-[1.48] group-focus-visible:-translate-x-1 group-focus-visible:-translate-y-2 group-focus-visible:rotate-[-16deg] group-focus-visible:scale-[1.48] sm:!left-[2%] sm:!top-[18%] sm:!h-[78%] sm:scale-[1.56] sm:group-hover:-translate-x-2 sm:group-hover:-translate-y-3 sm:group-hover:scale-[1.7] sm:group-focus-visible:-translate-x-2 sm:group-focus-visible:-translate-y-3 sm:group-focus-visible:scale-[1.7] motion-reduce:transition-none"
+                  className="!left-[45%] !top-[2%] !h-[86%] !w-[52%] rotate-[-11deg] scale-[1.98] object-contain object-center transition-transform duration-500 ease-out group-hover:-translate-x-1 group-hover:-translate-y-2 group-hover:rotate-[-16deg] group-hover:scale-[1.28] group-focus-visible:-translate-x-1 group-focus-visible:-translate-y-2 group-focus-visible:rotate-[-16deg] group-focus-visible:scale-[1.28] sm:!left-[45%] sm:!top-[3.5%] sm:!h-[78%] sm:scale-[1.34] sm:group-hover:-translate-x-2 sm:group-hover:-translate-y-3 sm:group-hover:scale-[1.45] sm:group-focus-visible:-translate-x-2 sm:group-focus-visible:-translate-y-3 sm:group-focus-visible:scale-[1.45] motion-reduce:transition-none"
                 />
-                <Image
-                  src={services[0].imagePair!.syringe}
-                  alt="Medication syringe"
-                  fill
-                  priority
-                  sizes="(min-width: 1024px) 30vw, 38vw"
-                  className="!left-[50%] !top-[8%] !h-[102%] !w-[46%] rotate-[9deg] scale-[1.38] object-contain object-center transition-transform duration-700 ease-out group-hover:translate-x-2 group-hover:-translate-y-3 group-hover:rotate-[14deg] group-hover:scale-[1.48] group-focus-visible:translate-x-2 group-focus-visible:-translate-y-3 group-focus-visible:rotate-[14deg] group-focus-visible:scale-[1.48] sm:!left-[51%] sm:!top-[2%] sm:!h-[105%] sm:scale-[1.56] sm:group-hover:translate-x-3 sm:group-hover:-translate-y-4 sm:group-hover:scale-[1.7] sm:group-focus-visible:translate-x-3 sm:group-focus-visible:-translate-y-4 sm:group-focus-visible:scale-[1.7] motion-reduce:transition-none"
-                />
+                {/*<Image*/}
+                {/*  src={services[0].imagePair!.syringe}*/}
+                {/*  alt="Medication syringe"*/}
+                {/*  alt="Medication syringe"*/}
+                {/*  fill*/}
+                {/*  priority*/}
+                {/*  sizes="(min-width: 1024px) 30vw, 38vw"*/}
+                {/*  className="!left-[50%] !top-[8%] !h-[102%] !w-[46%] rotate-[9deg] scale-[1.38] object-contain object-center transition-transform duration-700 ease-out group-hover:translate-x-2 group-hover:-translate-y-3 group-hover:rotate-[14deg] group-hover:scale-[1.48] group-focus-visible:translate-x-2 group-focus-visible:-translate-y-3 group-focus-visible:rotate-[14deg] group-focus-visible:scale-[1.48] sm:!left-[51%] sm:!top-[2%] sm:!h-[105%] sm:scale-[1.56] sm:group-hover:translate-x-3 sm:group-hover:-translate-y-4 sm:group-hover:scale-[1.7] sm:group-focus-visible:translate-x-3 sm:group-focus-visible:-translate-y-4 sm:group-focus-visible:scale-[1.7] motion-reduce:transition-none"*/}
+                {/*/>*/}
               </div>
               <div className="absolute bottom-5 left-6 z-20 sm:bottom-6 sm:left-7"><ArrowLink light /></div>
             </InteractiveCard>
 
-            <div className="mt-1.5 grid gap-1.5 sm:mt-4 sm:grid-cols-2 sm:gap-4">
+            <div className="mt-1.5 grid gap-1.5 sm:mt-4 sm:grid-cols-2 sm:gap-4 lg:col-start-2 lg:row-start-1 lg:mt-0 lg:grid-cols-1 lg:grid-rows-2">
               {[services[2], services[1]].map((service, index) => (
                 <InteractiveCard
                   key={service.title}
                   href={service.href}
                   ariaLabel={`Explore ${service.title}`}
                   revealDelay={(index + 1) * 90}
-                  className="relative min-h-[88px] overflow-hidden rounded-[24px] bg-[#f0efeb] px-5 py-4 text-[#191816] [--card-hover-scale:1.01] sm:min-h-[132px] sm:px-6 sm:py-6"
+                  className="relative min-h-[88px] overflow-hidden rounded-[24px] bg-[#f0efeb] px-5 py-4 text-[#191816] [--card-hover-scale:1.01] sm:min-h-[132px] sm:px-6 sm:py-6 lg:min-h-0"
                 >
                   <div className="relative z-20 flex h-full max-w-[50%] flex-col justify-center">
                     <h2 className="text-[16px] font-medium leading-[1.05] tracking-[-0.025em] sm:text-[22px] sm:font-semibold sm:tracking-[-0.035em]">{service.compactTitle}</h2>
@@ -278,7 +280,7 @@ export default function Home() {
         <div className="mx-auto max-w-[1270px]">
           <div className="grid gap-12 md:grid-cols-[1.2fr_2fr]">
             <div>
-              <div className="font-serif text-[44px] font-bold leading-none tracking-[-0.06em]">eden</div>
+              <div className="font-serif text-[44px] font-bold leading-none tracking-[-0.06em]">apoth</div>
               <p className="mt-6 text-sm text-white/60">Sign up to receive practical health tips.</p>
               <div className="mt-4 flex max-w-sm rounded-full border border-white/15 p-1">
                 <span className="flex-1 px-4 py-2 text-sm text-white/35">Enter your email</span>
@@ -288,7 +290,7 @@ export default function Home() {
             <div className="grid grid-cols-2 gap-8 text-sm sm:grid-cols-3">
               {[
                 ["Popular", "GLP-1 Treatments", "Weight Management", "Sermorelin", "NAD+"],
-                ["Company", "About Eden", "Our Blog", "Reviews", "FAQs", "Careers"],
+                ["Company", "About Apoth", "Our Blog", "Reviews", "FAQs", "Careers"],
                 ["Legal", "Terms & Conditions", "Privacy Policy", "Safety Information", "Your Privacy Choices"],
               ].map(([heading, ...links]) => (
                 <div key={heading}>
@@ -299,7 +301,7 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-16 flex flex-col gap-5 border-t border-white/10 pt-7 text-[11px] text-white/35 sm:flex-row sm:items-center sm:justify-between">
-            <span>© 2026 Eden Health International Inc. All rights reserved.</span>
+            <span>© 2026 Apoth Health, Inc. All rights reserved.</span>
             <span className="flex items-center gap-2"><PackageCheck className="h-4 w-4" /> Compounded in the U.S.A.</span>
           </div>
         </div>

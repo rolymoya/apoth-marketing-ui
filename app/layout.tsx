@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Eden — Personalized care, made for you",
+  title: "Apoth — Personalized care, made for you",
   description: "A high-fidelity homepage study for an online health and wellness platform.",
 };
 
